@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     private float maxspeed = 5f;
     public float horizontalacceleration;
     private float minspeed = 0.5f;
+    public Vector2 subrotation;
+    public float subrotationspeedx;
+    public float subrotationspeedy;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -26,9 +29,10 @@ public class PlayerMovement : MonoBehaviour
     }
     // Update is called once per frame
 
-    private void Awake()
+    private void Start()
     {
         submarine.GetComponent<Rigidbody>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Update()
@@ -37,6 +41,9 @@ public class PlayerMovement : MonoBehaviour
         //jumpPlayer();
         verticalMovement();
         //Debug.Log(Physics.gravity);
+        subrotation.x += Input.GetAxis("Mouse X") * subrotationspeedx;
+        subrotation.y += Input.GetAxis("Mouse Y") * subrotationspeedy;
+        transform.localRotation = Quaternion.Euler(-subrotation.y, subrotation.x, 0f);
     }
     public void movePlayer()
     {

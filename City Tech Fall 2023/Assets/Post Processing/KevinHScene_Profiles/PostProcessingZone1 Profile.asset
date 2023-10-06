@@ -53,13 +53,13 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: -47
+    value: 0
   tint:
     overrideState: 1
     value: 0
   colorFilter:
-    overrideState: 0
-    value: {r: 1, g: 1, b: 1, a: 1}
+    overrideState: 1
+    value: {r: 0.034313723, g: 0.105176285, b: 0.25, a: 1}
   hueShift:
     overrideState: 0
     value: 0
@@ -1329,7 +1329,7 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 50
+    value: 25
   aperture:
     overrideState: 1
     value: 2.7

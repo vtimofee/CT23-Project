@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+[RequireComponent(typeof(Rigidbody), typeof(PlayerMechanics))]
 public class PlayerMovement : AbstractPlayer
 {
     // Start is called before the first frame update
@@ -10,23 +11,28 @@ public class PlayerMovement : AbstractPlayer
     public float verticalspeed;
     private Vector3 move;
     private Vector3 jump = new Vector3(0f, 2f, 0f);
-    public Rigidbody submarine;
     private float maxspeed = 5f;
     public float horizontalacceleration;
     private float minspeed = 0.5f;
-    public Vector2 subrotation;
+    private Vector2 subrotation;
     public float subrotationspeedx;
     public float subrotationspeedy;
-    public Terrain terrain;
     public bool crashed;
     public bool canCrash;
-    public float crashdelay;
+    [Range(0f, 1f)] public float crashvelocity;
+    public float minCrash;
+    public bool GodMode;
+    private bool invulnerable;
+    private Rigidbody rigidBody;
+    private PlayerMechanics DamageMechanics;
+    private float damageFactor;
 
-    private void Start()
+    private void Awake()
     {
-        submarine.GetComponent<Rigidbody>();
+        rigidBody = GetComponent<Rigidbody>();
+        DamageMechanics = GetComponent<PlayerMechanics>(); 
         Cursor.lockState = CursorLockMode.Locked;
-        hp = maxhp;
+        
     }
 
     public void Update()
@@ -37,8 +43,13 @@ public class PlayerMovement : AbstractPlayer
         subrotation.x += Input.GetAxis("Mouse X") * subrotationspeedx;
         subrotation.y += Input.GetAxis("Mouse Y") * subrotationspeedy;
         transform.localRotation = Quaternion.Euler(-subrotation.y, subrotation.x, 0f);
-        
-        
+        if (GodMode == true)
+        {
+            invulnerable = true;
+        }else if(invulnerable == true)
+        {
+            
+        }
     }
     public void movePlayer()
     {
@@ -56,17 +67,21 @@ public class PlayerMovement : AbstractPlayer
     }//Utilizing Space.Self in order to move the submarine in relation to its own rotation instead of Space.World
     public void OnCollisionEnter(Collision collision)
     {
+        float damageFactor = rigidBody.velocity.magnitude / minCrash;
         if (collision.gameObject.tag == "Terrain")
         {
             canCrash = true;
+            //Debug.Log("crashtrue");
 
         }
-        if (crashed == true)
+        if (canCrash == true)
         {
+            //Debug.Log("oncrash");
             OnCrash();
             crashed = false;
             canCrash = false;
         }
+        
     }
     private void verticalMovement()
     {
@@ -98,44 +113,30 @@ public class PlayerMovement : AbstractPlayer
     {
         jump = context.ReadValue<Vector2>();
     }
-    public void crashSpeed()
-    {
-        if(mincrash < horizontalacceleration)
-        {
-            damagetaken = mincrash * horizontalspeed / 2;
-        }
-        else if(horizontalspeed >= maxspeed)
-        {
-            damagetaken = maxcrash * horizontalspeed / 2;
-        }
-        else
-        {
-            currentcrash = maxcrash * horizontalspeed / 2;
-            damagetaken = currentcrash;
-        }
-    }
+
     
     public void OnCrash()
     {
-        crashSpeed();
+        //Debug.Log("Dmgcalc");
+        damageFactor = rigidBody.velocity.magnitude / minCrash;
         damageCalculation();
+        if (damageFactor > crashvelocity){
+            Debug.Log("BIG BONK");
+        }else if(damageFactor < crashvelocity)
+        {
+            Debug.Log("little bonk");
+        }
         //Sound and etc.
     }
 
     public void damageCalculation()
     {
-        if(damagetaken > maxdamagetaken)
+        //private float damageFactor = rigidBody.velocity.magnitude / minCrash;
+        if (damageFactor > crashvelocity && !GodMode)
         {
-            damagetaken = maxdamagetaken;
-        }
-        else if (damagetaken < mindamagetaken)
-        {
-            damagetaken = mindamagetaken;
-        }
-        hp = -damagetaken;
-        if(damagetaken > 0)
-        {
-            damagetaken = 0;
+            
+            //Debug.Log("damagefactored");
+            DamageMechanics.Damage(damage * damageFactor * 5);
         }
     }
 }

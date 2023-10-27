@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4220494658455003929}
   - component: {fileID: 6849293650728644203}
   - component: {fileID: 7895325959867817889}
-  - component: {fileID: 2615235472080628634}
   - component: {fileID: 2739884903180107771}
   - component: {fileID: 8557135178146392418}
+  - component: {fileID: 5916141534809836546}
+  - component: {fileID: 2615235472080628634}
   m_Layer: 0
   m_Name: SubmarinePlayer 1
   m_TagString: Player
@@ -115,25 +116,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2615235472080628634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074326125793468620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f4c725fcb11167419daf4b1c39bcd13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalspeed: 0.5
-  verticalspeed: 1.5
-  submarine: {fileID: 2739884903180107771}
-  horizontalacceleration: 2.5
-  subrotation: {x: 0, y: 0}
-  subrotationspeedx: 0.2
-  subrotationspeedy: 0.05
 --- !u!54 &2739884903180107771
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -279,6 +261,43 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1755640201612745733}
+--- !u!114 &5916141534809836546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074326125793468620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2fe1f811ffbad46b0d67e1c3901c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxhp: 1000
+--- !u!114 &2615235472080628634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074326125793468620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f4c725fcb11167419daf4b1c39bcd13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 250
+  repairspeed: 0
+  horizontalspeed: 0.5
+  verticalspeed: 1.5
+  horizontalacceleration: 2.5
+  subrotationspeedx: 0.2
+  subrotationspeedy: 0.05
+  crashed: 0
+  canCrash: 1
+  crashvelocity: 0.3
+  minCrash: 25
+  GodMode: 0
 --- !u!1 &4613934667346369540
 GameObject:
   m_ObjectHideFlags: 0

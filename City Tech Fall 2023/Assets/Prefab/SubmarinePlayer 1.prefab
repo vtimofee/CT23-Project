@@ -274,6 +274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxhp: 1000
+  repairhps: 20
+  repairtools: 0
 --- !u!114 &2615235472080628634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,13 +289,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 250
-  repairspeed: 0
   horizontalspeed: 0.5
   verticalspeed: 1.5
   horizontalacceleration: 2.5
   subrotationspeedx: 0.2
   subrotationspeedy: 0.05
-  crashed: 0
   canCrash: 1
   crashvelocity: 0.3
   minCrash: 25

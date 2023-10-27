@@ -17,7 +17,6 @@ public class PlayerMovement : AbstractPlayer
     private Vector2 subrotation;
     public float subrotationspeedx;
     public float subrotationspeedy;
-    public bool crashed;
     public bool canCrash;
     [Range(0f, 1f)] public float crashvelocity;
     public float minCrash;
@@ -78,7 +77,6 @@ public class PlayerMovement : AbstractPlayer
         {
             //Debug.Log("oncrash");
             OnCrash();
-            crashed = false;
             canCrash = false;
         }
         

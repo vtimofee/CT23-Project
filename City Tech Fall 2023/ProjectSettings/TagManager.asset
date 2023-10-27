@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - 'Terrain '
+  - Terrain
   layers:
   - Default
   - TransparentFX
@@ -12,11 +12,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PostProcessing
+  - Terrain
+  - Red
+  - Blue
+  - MiniMap
   - 
   - 
   - 

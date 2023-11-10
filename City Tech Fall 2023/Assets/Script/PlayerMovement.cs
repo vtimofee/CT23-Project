@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody), typeof(PlayerMechanics))]
 public class PlayerMovement : AbstractPlayer
 {
+    private const int V = 0;
+
     // Start is called before the first frame update
     public float horizontalspeed;
     public float verticalspeed;
@@ -25,13 +27,15 @@ public class PlayerMovement : AbstractPlayer
     private Rigidbody rigidBody;
     private PlayerMechanics DamageMechanics;
     private float damageFactor;
+    public Transform target;
+    public float smooth = 0.3f;
+    private Vector3 velocity = Vector3.zero;
+   
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
         DamageMechanics = GetComponent<PlayerMechanics>(); 
-        Cursor.lockState = CursorLockMode.Locked;
-        
     }
 
     public void Update()
@@ -42,6 +46,10 @@ public class PlayerMovement : AbstractPlayer
         subrotation.x += Input.GetAxis("Mouse X") * subrotationspeedx;
         subrotation.y += Input.GetAxis("Mouse Y") * subrotationspeedy;
         transform.localRotation = Quaternion.Euler(-subrotation.y, subrotation.x, 0f);
+/*        if(rigidBody.velocity.x > 0)
+        {
+            rigidBody.velocity.x = V;
+        }*/
         if (GodMode == true)
         {
             invulnerable = true;
@@ -63,6 +71,14 @@ public class PlayerMovement : AbstractPlayer
             horizontalspeed -= horizontalacceleration * Time.deltaTime;
         }
         transform.Translate(movement * horizontalspeed * Time.deltaTime, Space.Self);
+        //rigidBody.velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        //Vector3 movetoRotation = rigidBody.position + transform.TransformDirection(Input.GetAxis("Horizontal")/20, 0, Input.GetAxis("Vertical")/20);
+        //rigidBody.MovePosition(movetoRotation);
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            rigidBody.velocity *= -0.1f;
+        }
+
     }//Utilizing Space.Self in order to move the submarine in relation to its own rotation instead of Space.World
     public void OnCollisionEnter(Collision collision)
     {
@@ -85,6 +101,7 @@ public class PlayerMovement : AbstractPlayer
     {
         if (Input.GetKey(KeyCode.Space))
         {
+            //Vector3 movetoRotation = rigidBody.position + transform.TransformDirection(Input.GetAxis("Horizontal") / 20, 0, Input.GetAxis("Vertical") / 20);
             Vector3 vertical = new Vector3(0f, move.y, move.z);
             transform.Translate(vertical * verticalspeed * Time.deltaTime, Space.Self);
             Physics.gravity = new Vector3(0f, 1f, 0f);
@@ -96,7 +113,7 @@ public class PlayerMovement : AbstractPlayer
             //Changes gravity back to default once we are no longer going up.
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftControl))
         {
             transform.position -= new Vector3(0f, verticalspeed * Time.deltaTime, 0f);
             //Moves down.

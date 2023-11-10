@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 110142543}
   m_Layer: 0
   m_Name: 'Area-4 '
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 386463157}
   m_Layer: 0
   m_Name: Area-2
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -5233,7 +5233,7 @@ GameObject:
   - component: {fileID: 672092293}
   m_Layer: 0
   m_Name: Area-3
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647

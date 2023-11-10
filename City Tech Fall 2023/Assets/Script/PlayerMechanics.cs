@@ -3,19 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMechanics : MonoBehaviour
 {
     public float maxhp;
     private float hp;
-    private void OnEnable() => hp = maxhp;
     public float repairhps;
     private float repairtimer;
     private bool canrepair;
     public float repairtools;
+    private float oxygen;
+    public float maxoxygen;
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     public void Update()
     {
         Repair();
+        
     }
     public void Damage(float damage)
     {
@@ -25,7 +32,7 @@ public class PlayerMechanics : MonoBehaviour
     }
     public void Destroyed()
     {
-        Debug.Log("Submarine down");
+        SunkenScene();
         //Particle and etc.
     }
     public void Repair()
@@ -45,5 +52,21 @@ public class PlayerMechanics : MonoBehaviour
                 repairtimer = 0;
             }
         }
+    }
+    public void Oxygen(float oxygenloss)
+    {
+        oxygen -= oxygenloss;
+        if (oxygen < 0) Destroyed();
+    }
+    private void OnEnable()
+    {
+        hp = maxhp;
+        oxygen = maxoxygen;
+    }
+
+    public void SunkenScene()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene(2);
     }
 }

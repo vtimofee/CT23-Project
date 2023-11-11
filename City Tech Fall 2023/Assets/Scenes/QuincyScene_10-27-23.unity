@@ -426,6 +426,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &212219252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1074326125793468620, guid: d2edc44aa7384d04b8d792d892632039, type: 3}
+  m_PrefabInstance: {fileID: 1917640534}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &526509368
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,7 +810,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 1a265fcedec1b7f4ba97dff404456f9c, type: 3}
-  m_Color: {r: 0, g: 0.8301887, b: 0.10539842, a: 1}
+  m_Color: {r: 0, g: 0.8301887, b: 0.10539842, a: 0.47058824}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1140,13 +1145,36 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3519105316591333794, guid: d2edc44aa7384d04b8d792d892632039, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1854542123}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1074326125793468620, guid: d2edc44aa7384d04b8d792d892632039, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1917640536}
   m_SourcePrefab: {fileID: 100100000, guid: d2edc44aa7384d04b8d792d892632039, type: 3}
 --- !u!4 &1917640535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3519105316591333794, guid: d2edc44aa7384d04b8d792d892632039, type: 3}
   m_PrefabInstance: {fileID: 1917640534}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1917640536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212219252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dabbe2562b4b6445bff102999f221df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackedObjects:
+  - {fileID: 198881844}
+  - {fileID: 1914509708}
+  - {fileID: 92434277}
+  - {fileID: 1414190228}
+  radarPrefab: {fileID: 6967205611649551027, guid: 859b0fbaaadad264e8935557fafe6c68, type: 3}
+  switchDistance: 10
+  helpTransform: {fileID: 1854542123}
 --- !u!43 &1924715201
 Mesh:
   m_ObjectHideFlags: 0

@@ -30,10 +30,11 @@ public class PlayerMovement : AbstractPlayer
     public Transform target;
     public float smooth = 0.3f;
     private Vector3 velocity = Vector3.zero;
-   
+    public buttonScript PauseRotation;
 
     private void Awake()
     {
+        PauseRotation = gameObject.GetComponent<buttonScript>();
         rigidBody = GetComponent<Rigidbody>();
         DamageMechanics = GetComponent<PlayerMechanics>(); 
     }
@@ -43,8 +44,11 @@ public class PlayerMovement : AbstractPlayer
         movePlayer();
         verticalMovement();
         //Debug.Log(Physics.gravity);
-        subrotation.x += Input.GetAxis("Mouse X") * subrotationspeedx;
-        subrotation.y += Input.GetAxis("Mouse Y") * subrotationspeedy;
+        if (PauseRotation.isPaused == false)
+        {
+            subrotation.x += Input.GetAxis("Mouse X") * subrotationspeedx;
+            subrotation.y += Input.GetAxis("Mouse Y") * subrotationspeedy;
+        }
         transform.localRotation = Quaternion.Euler(-subrotation.y, subrotation.x, 0f);
 /*        if(rigidBody.velocity.x > 0)
         {

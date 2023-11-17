@@ -14,7 +14,8 @@ public class OxygenTankPickup : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("PLAYER HAS CONTACTED ME");
+            //Debug.Log("object contact with : " + other.name);
+            this.gameObject.SetActive(false);
         }
         
     }

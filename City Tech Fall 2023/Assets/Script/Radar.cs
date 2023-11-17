@@ -5,9 +5,13 @@ using UnityEngine;
 public class Radar : MonoBehaviour
 {
 
-    public GameObject[] trackedObjects;
+    public GameObject[] trackedNPCs;
+    public GameObject[] trackedOxyTanks;
+    public GameObject[] trackedPayload;
     List<GameObject> radarObjects;
     public GameObject radarPrefab;
+    public GameObject oxygenPrefab;
+    public GameObject payloadPrefab;
     List<GameObject> borderObjects;
     public float switchDistance;
     public Transform helpTransform;
@@ -44,11 +48,26 @@ public class Radar : MonoBehaviour
     {
         radarObjects = new List<GameObject>();
         borderObjects = new List<GameObject>();
-        foreach (GameObject o in trackedObjects)
+        foreach (GameObject o in trackedNPCs)
         {
             GameObject k = Instantiate(radarPrefab, o.transform.position, Quaternion.identity) as GameObject;
             radarObjects.Add(k);
             GameObject j = Instantiate(radarPrefab, o.transform.position, Quaternion.identity) as GameObject;
+            borderObjects.Add(j);
+        }
+        foreach (GameObject o in trackedOxyTanks)
+        {
+            GameObject k = Instantiate(oxygenPrefab, o.transform.position, Quaternion.identity) as GameObject;
+            radarObjects.Add(k);
+            GameObject j = Instantiate(oxygenPrefab, o.transform.position, Quaternion.identity) as GameObject;
+            borderObjects.Add(j);
+        }
+
+        foreach (GameObject o in trackedPayload)
+        {
+            GameObject k = Instantiate(payloadPrefab, o.transform.position, Quaternion.identity) as GameObject;
+            radarObjects.Add(k);
+            GameObject j = Instantiate(payloadPrefab, o.transform.position, Quaternion.identity) as GameObject;
             borderObjects.Add(j);
         }
     }

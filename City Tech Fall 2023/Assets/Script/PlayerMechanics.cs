@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,14 +16,16 @@ public class PlayerMechanics : MonoBehaviour
     public float repairtools;
     private float oxygen;
     public float maxoxygen;
+    public buttonScript PauseResume;
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        PauseResume = gameObject.GetComponent<buttonScript>();
+        PauseResume.ResumeGame();
     }
     public void Update()
     {
         Repair();
-        
+        PauseResumeMode();
     }
     public void Damage(float damage)
     {
@@ -68,5 +71,20 @@ public class PlayerMechanics : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(2);
+    }
+    public void PauseResumeMode()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("yo");
+            if (PauseResume.isPaused == true)
+            {
+                PauseResume.ResumeGame();
+            }
+            else if (PauseResume.isPaused == false)
+            {
+                PauseResume.PauseGame();
+            }
+        }
     }
 }

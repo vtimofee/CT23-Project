@@ -2153,9 +2153,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1074326125793468620, guid: d2edc44aa7384d04b8d792d892632039, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1917640537}
-    - targetCorrespondingSourceObject: {fileID: 1074326125793468620, guid: d2edc44aa7384d04b8d792d892632039, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1917640538}
   m_SourcePrefab: {fileID: 100100000, guid: d2edc44aa7384d04b8d792d892632039, type: 3}
 --- !u!4 &1917640535 stripped
 Transform:
@@ -2176,27 +2173,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1917640536}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1df4fc3af33726a4a8655e424c741419, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trackedObjects:
-  - {fileID: 198881844}
-  - {fileID: 1914509708}
-  - {fileID: 92434277}
-  - {fileID: 1414190228}
-  radarPrefab: {fileID: 6967205611649551027, guid: dee15ed492eb9f44983b9a305271a9df, type: 3}
-  switchDistance: 10
-  helpTransform: {fileID: 1854542123}
---- !u!114 &1917640538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917640536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e219c47706352c45968dca218f96d20, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dabbe2562b4b6445bff102999f221df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   trackedNPCs:
@@ -2214,9 +2191,9 @@ MonoBehaviour:
   - {fileID: 650573276}
   trackedPayload:
   - {fileID: 342927630}
-  radarPrefab: {fileID: 6967205611649551027, guid: dee15ed492eb9f44983b9a305271a9df, type: 3}
-  oxygenPrefab: {fileID: 6660931463938522394, guid: fa53d02ca10595f499e6a1ffb0ffeff7, type: 3}
-  payloadPrefab: {fileID: 3234319130300568553, guid: 6e7cf3c0a85103d44976de82a263d05a, type: 3}
+  radarPrefab: {fileID: 6967205611649551027, guid: 859b0fbaaadad264e8935557fafe6c68, type: 3}
+  oxygenPrefab: {fileID: 6660931463938522394, guid: 6b44e715da776b44c8d8aeaacd608f61, type: 3}
+  payloadPrefab: {fileID: 3234319130300568553, guid: 0f78b386d55b1984c8e73a06e2fbb6d0, type: 3}
   switchDistance: 10
   helpTransform: {fileID: 1854542123}
 --- !u!43 &1924715201

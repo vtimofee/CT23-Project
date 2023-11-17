@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 95674691}
   - component: {fileID: 95674690}
   - component: {fileID: 95674695}
+  - component: {fileID: 95674696}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -156,20 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee2057fb906a494d938fc3c0d29e21b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1873022280}
-  - {fileID: 1703326716}
-  - {fileID: 1902669773}
-  - {fileID: 1808474654}
-  - {fileID: 1878833799}
-  - {fileID: 1304111139}
-  - {fileID: 1304111139}
-  - {fileID: 1304111139}
-  - {fileID: 1304111139}
-  - {fileID: 1304111139}
-  - {fileID: 1304111139}
-  - {fileID: 1304111139}
-  speed: 15
 --- !u!136 &95674691
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -354,6 +341,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &95674696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95674689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191b6c7f14b894c4e9d0a8bb84a598c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1873022280}
+  - {fileID: 1703326716}
+  - {fileID: 1902669773}
+  - {fileID: 1808474654}
+  - {fileID: 1878833799}
+  - {fileID: 1304111139}
+  speed: 15
 --- !u!114 &545952653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,10 +373,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee2057fb906a494d938fc3c0d29e21b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1022331443}
-  - {fileID: 1222460393}
-  speed: 15
 --- !u!54 &545952658
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -407,7 +410,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d7171dcf479964a0b95c7354addd32f8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bd597d99f2928f24b888863844e64775, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -921,12 +924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee2057fb906a494d938fc3c0d29e21b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1315170488}
-  - {fileID: 931795133}
-  - {fileID: 2068357042}
-  - {fileID: 1428709166}
-  speed: 5
 --- !u!82 &1307018255
 AudioSource:
   m_ObjectHideFlags: 0
@@ -937,7 +934,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d28762bde65a74a6b9595d4c7b7cbd90, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 11aff052f6c56394faa4711c363f67fe, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1420,6 +1417,7 @@ GameObject:
   - component: {fileID: 8171610889376606068}
   - component: {fileID: 1307018250}
   - component: {fileID: 1307018255}
+  - component: {fileID: 8775814491716272369}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -1513,6 +1511,7 @@ GameObject:
   - component: {fileID: 545952653}
   - component: {fileID: 545952658}
   - component: {fileID: 545952659}
+  - component: {fileID: 8269233275407610840}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1598,6 +1597,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8269233275407610840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6477144764594775943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191b6c7f14b894c4e9d0a8bb84a598c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1022331443}
+  - {fileID: 1222460393}
+  speed: 15
 --- !u!4 &8775814491716272368
 Transform:
   m_ObjectHideFlags: 0
@@ -1613,6 +1628,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8775814491716272369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3718084938778954970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191b6c7f14b894c4e9d0a8bb84a598c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1315170488}
+  - {fileID: 931795133}
+  - {fileID: 2068357042}
+  - {fileID: 1428709166}
+  speed: 15
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

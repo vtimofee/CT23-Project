@@ -50,16 +50,22 @@ public class PlayerMovement : AbstractPlayer
             subrotation.y += Input.GetAxis("Mouse Y") * subrotationspeedy;
         }
         transform.localRotation = Quaternion.Euler(-subrotation.y, subrotation.x, 0f);
-/*        if(rigidBody.velocity.x > 0)
+        if (PauseMenu.isPaused == false)
         {
-            rigidBody.velocity.x = V;
-        }*/
-        if (GodMode == true)
-        {
-            invulnerable = true;
-        }else if(invulnerable == true)
-        {
-            
+            movePlayer();
+            verticalMovement();
+            //Debug.Log(Physics.gravity);
+            subrotation.x += Input.GetAxis("Mouse X") * subrotationspeedx;
+            subrotation.y += Input.GetAxis("Mouse Y") * subrotationspeedy;
+            transform.localRotation = Quaternion.Euler(-subrotation.y, subrotation.x, 0f);
+            if (GodMode == true)
+            {
+                invulnerable = true;
+            }
+            else if (invulnerable == true)
+            {
+
+            }
         }
     }
     public void movePlayer()

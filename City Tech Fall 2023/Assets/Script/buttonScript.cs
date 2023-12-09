@@ -35,5 +35,10 @@ public class buttonScript : MonoBehaviour
         Time.timeScale = 1;
         isPaused = false;
     }
+    public void onVictory()
+    {
+        Cursor.lockState= CursorLockMode.None;
+        SceneManager.LoadScene(3);
+    }
     //SceneManager.LoadScene(2) for the death scene is in the PlayerMechanics.cs script
 }

@@ -50,7 +50,7 @@ public class PlayerMovement : AbstractPlayer
             subrotation.y += Input.GetAxis("Mouse Y") * subrotationspeedy;
         }
         transform.localRotation = Quaternion.Euler(-subrotation.y, subrotation.x, 0f);
-        if (PauseMenu.isPaused == false)
+        /*if (PauseMenu.isPaused == false)
         {
             movePlayer();
             verticalMovement();
@@ -66,7 +66,7 @@ public class PlayerMovement : AbstractPlayer
             {
 
             }
-        }
+        }*/
     }
     public void movePlayer()
     {

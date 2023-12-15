@@ -1027,7 +1027,7 @@ MonoBehaviour:
   - {fileID: 919132149155446097, guid: a8fd0d08c30426d4c978a4998752cf7d, type: 3}
   - {fileID: 919132149155446097, guid: ae51ad94fa7d3764d957aa512d506d00, type: 3}
   - {fileID: 919132149155446097, guid: ea93ead513f04c9478f78e3f40ba5b11, type: 3}
-  - {fileID: 0}
+  - {fileID: 8730549718987909177, guid: 9498ee6a91affee4d941b648bdf3bf86, type: 3}
   BeegFish:
   - {fileID: 919132149155446097, guid: ca38d4485fce19f4aa0d3d7bdd8b6cf2, type: 3}
   - {fileID: 919132149155446097, guid: ca38d4485fce19f4aa0d3d7bdd8b6cf2, type: 3}
@@ -1037,7 +1037,7 @@ MonoBehaviour:
   Fish2: {fileID: 919132149155446097, guid: a8fd0d08c30426d4c978a4998752cf7d, type: 3}
   Fish3: {fileID: 919132149155446097, guid: ae51ad94fa7d3764d957aa512d506d00, type: 3}
   Fish4: {fileID: 919132149155446097, guid: ea93ead513f04c9478f78e3f40ba5b11, type: 3}
-  Fish5: {fileID: 0}
+  Fish5: {fileID: 1860127187}
 --- !u!1 &1067961318 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7606546109779917260, guid: 6b9d709bd45870e40b12c58473dbc20e, type: 3}
@@ -1474,10 +1474,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OxygenSpawner:
   - {fileID: 8730549718987909177, guid: 9498ee6a91affee4d941b648bdf3bf86, type: 3}
-  OxygenTank: {fileID: 0}
-  OxygenBubbles: {fileID: 0}
+  - {fileID: 8730549718987909177, guid: 9498ee6a91affee4d941b648bdf3bf86, type: 3}
+  - {fileID: 8730549718987909177, guid: 9498ee6a91affee4d941b648bdf3bf86, type: 3}
+  - {fileID: 8730549718987909177, guid: 9498ee6a91affee4d941b648bdf3bf86, type: 3}
+  ItemLocation:
+  - {fileID: 1330692369}
+  - {fileID: 1330692369}
+  - {fileID: 1330692369}
+  - {fileID: 1330692369}
   OxygenTankVectors:
   - {x: 10, y: 10, z: 0}
+  - {x: 20, y: 10, z: 0}
+  - {x: 30, y: 10, z: 0}
 --- !u!4 &1860127189
 Transform:
   m_ObjectHideFlags: 0

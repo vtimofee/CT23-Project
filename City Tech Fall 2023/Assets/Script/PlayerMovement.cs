@@ -22,6 +22,7 @@ public class PlayerMovement : AbstractPlayer
     public bool canCrash;
     [Range(0f, 1f)] public float crashvelocity;
     public float minCrash;
+    private float maxCrash = 200;
     public bool GodMode;
     private bool invulnerable;
     private Rigidbody rigidBody;
@@ -31,6 +32,7 @@ public class PlayerMovement : AbstractPlayer
     public float smooth = 0.3f;
     private Vector3 velocity = Vector3.zero;
     public buttonScript PauseRotation;
+    private Vector3 velocityreset;
 
     private void Awake()
     {
@@ -43,6 +45,7 @@ public class PlayerMovement : AbstractPlayer
     {
         movePlayer();
         verticalMovement();
+        Debug.Log(rigidBody.velocity);
         //Debug.Log(Physics.gravity);
         if (PauseRotation.isPaused == false)
         {
@@ -50,6 +53,10 @@ public class PlayerMovement : AbstractPlayer
             subrotation.y += Input.GetAxis("Mouse Y") * subrotationspeedy;
         }
         transform.localRotation = Quaternion.Euler(-subrotation.y, subrotation.x, 0f);
+        /*if(rigidBody.velocity.magnitude > 0)
+        {
+            rigidBody.velocity = Vector3.zero;
+        }*/
         /*if (PauseMenu.isPaused == false)
         {
             movePlayer();
@@ -80,13 +87,18 @@ public class PlayerMovement : AbstractPlayer
         {
             horizontalspeed -= horizontalacceleration * Time.deltaTime;
         }
-        transform.Translate(movement * horizontalspeed * Time.deltaTime, Space.Self);
+        if (horizontalspeed < maxspeed && !(Input.GetKey(KeyCode.W) || !Input.GetKey(KeyCode.A) || !Input.GetKey(KeyCode.S) || !Input.GetKey(KeyCode.D)))
+        {
+            horizontalspeed = 0f;
+        }
+
+            transform.Translate(movement * horizontalspeed * Time.deltaTime, Space.Self);
         //rigidBody.velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         //Vector3 movetoRotation = rigidBody.position + transform.TransformDirection(Input.GetAxis("Horizontal")/20, 0, Input.GetAxis("Vertical")/20);
         //rigidBody.MovePosition(movetoRotation);
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            rigidBody.velocity *= -0.1f;
+            rigidBody.velocity = Vector3.zero;
         }
 
     }//Utilizing Space.Self in order to move the submarine in relation to its own rotation instead of Space.World
@@ -145,11 +157,12 @@ public class PlayerMovement : AbstractPlayer
         //Debug.Log("Dmgcalc");
         damageFactor = rigidBody.velocity.magnitude / minCrash;
         damageCalculation();
+        rigidBody.velocity = Vector3.zero;
         if (damageFactor > crashvelocity){
-            Debug.Log("BIG BONK");
+            //Debug.Log("BIG BONK");
         }else if(damageFactor < crashvelocity)
         {
-            Debug.Log("little bonk");
+            //Debug.Log("little bonk");
         }
         //Sound and etc.
     }
@@ -159,8 +172,16 @@ public class PlayerMovement : AbstractPlayer
         //private float damageFactor = rigidBody.velocity.magnitude / minCrash;
         if (damageFactor > crashvelocity && !GodMode)
         {
-            
-            //Debug.Log("damagefactored");
+
+            if(damageFactor > 0.2)
+            {
+                damageFactor = 0.2f;
+            }
+            Debug.Log("Damage factor"+damageFactor);
+            Debug.Log("Crashvel"+crashvelocity);
+            Debug.Log("rigidBodyvel"+rigidBody.velocity.magnitude);
+            velocityreset = new Vector3(0, 0, 0);
+            rigidBody.velocity = velocityreset;
             DamageMechanics.Damage(damage * damageFactor * 5);
         }
     }
